@@ -2,32 +2,35 @@
 
 #include <cstdint>
 
+#include <vm_prot.hpp>
+#include <cpu.hpp>
+
 namespace mac {
 	inline constexpr uint32_t MH_MAGIC = 0xfeedface;
 	inline constexpr uint32_t MH_CIGAM = 0xcefaedfe;
 
 	struct mach_header_t {
-		uint32_t magic;
-		int32_t  cputype;
-		int32_t  cpusubtype;
-		uint32_t filetype;
-		uint32_t ncmds;
-		uint32_t sizeofcmds;
-		uint32_t flags;
+		uint32_t       magic;
+		cpu_type_t     cputype;
+		cpu_subtype_t  cpusubtype;
+		uint32_t	   filetype;
+		uint32_t	   ncmds;
+		uint32_t	   sizeofcmds;
+		uint32_t	   flags;
 	};
 
 	struct segment_command_t {
-		uint32_t cmd;
-		uint32_t cmdsize;
-		char     segname[ 16 ];
-		uint32_t vmaddr;
-		uint32_t vmsize;
-		uint32_t fileoff;
-		uint32_t filesize;
-		int32_t  maxprot;
-		int32_t  initprot;
-		uint32_t nsects;
-		uint32_t flags;
+		uint32_t   cmd;
+		uint32_t   cmdsize;
+		char       segname[ 16 ];
+		uint32_t   vmaddr;
+		uint32_t   vmsize;
+		uint32_t   fileoff;
+		uint32_t   filesize;
+		vm_prot_t  maxprot;
+		vm_prot_t  initprot;
+		uint32_t   nsects;
+		uint32_t   flags;
 	};
 
 	struct section_t {
@@ -85,28 +88,28 @@ namespace mac {
 	inline constexpr uint32_t MH_CIGAM_64 = 0xcffaedfe;
 
 	struct mach_header_64_t {
-		uint32_t magic;
-		int32_t  cputype;
-		int32_t  cpusubtype;
-		uint32_t filetype;
-		uint32_t ncmds;
-		uint32_t sizeofcmds;
-		uint32_t flags;
-		uint32_t reserved;
+		uint32_t       magic;
+		cpu_type_t     cputype;
+		cpu_subtype_t  cpusubtype;
+		uint32_t       filetype;
+		uint32_t       ncmds;
+		uint32_t       sizeofcmds;
+		uint32_t       flags;
+		uint32_t       reserved;
 	};
 
 	struct segment_command_64_t {
-		uint32_t cmd;
-		uint32_t cmdsize;
-		char     segname[ 16 ];
-		uint64_t vmaddr;
-		uint64_t vmsize;
-		uint64_t fileoff;
-		uint64_t filesize;
-		int32_t  maxprot;
-		int32_t  initprot;
-		uint32_t nsects;
-		uint32_t flags;
+		uint32_t   cmd;
+		uint32_t   cmdsize;
+		char       segname[ 16 ];
+		uint64_t   vmaddr;
+		uint64_t   vmsize;
+		uint64_t   fileoff;
+		uint64_t   filesize;
+		vm_prot_t  maxprot;
+		vm_prot_t  initprot;
+		uint32_t   nsects;
+		uint32_t   flags;
 	};
 
 	struct section_64_t {
