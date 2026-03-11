@@ -2,8 +2,8 @@
 
 #include <cstdint>
 
-#include <vm_prot.hpp>
-#include <cpu.hpp>
+#include "vm_prot.hpp"
+#include "cpu.hpp"
 
 namespace mac {
 	inline constexpr uint32_t MH_MAGIC = 0xfeedface;
