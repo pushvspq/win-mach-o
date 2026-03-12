@@ -11,12 +11,12 @@ namespace mac {
 	inline constexpr vm_prot_t VM_PROT_WRITE   = ( ( vm_prot_t )0x02 );
 	inline constexpr vm_prot_t VM_PROT_EXECUTE = ( ( vm_prot_t )0x04 );
 
-	inline constexpr vm_prot_t VM_PROT_DEFAULT = VM_PROT_READ | VM_PROT_WRITE;
-	inline constexpr vm_prot_t VM_PROT_ALL	   = VM_PROT_READ | VM_PROT_WRIT | VM_PROT_EXECUTE;
+	inline constexpr vm_prot_t VM_PROT_DEFAULT = ( ( vm_prot_t )0x03 );
+	inline constexpr vm_prot_t VM_PROT_ALL	   = ( ( vm_prot_t )0x07 );
 
 	inline constexpr vm_prot_t VM_PROT_NO_CHANGE = ( ( vm_prot_t )0x08 );
 
-	inline constexpr vm_prot_t VM_PROT_COPY = ( ( vm_prot_t )0x10 );
+	inline constexpr vm_prot_t VM_PROT_COPY       = ( ( vm_prot_t )0x10 );
 	inline constexpr vm_prot_t VM_PROT_WANTS_COPY = ( ( vm_prot_t )0x10 );
 
 	inline constexpr vm_prot_t VM_PROT_TRUSTED = ( ( vm_prot_t )0x20 );
